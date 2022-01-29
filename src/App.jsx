@@ -143,12 +143,11 @@ function App() {
   };
 
   return (
-    <div className="">
+    <div className="bg-[#BF8B67] h-[100vh]">
       <div className="container mx-auto p-5">
         <div className="grid place-content-center">
-          <h1 className="text-5xl uppercase font-mono font-bold text-white">Mis Recetas</h1>
           <button
-            className="mt-5 border-2 border-black bg-purple-300 p-2 rounded-xl text-black uppercase font-semibold font-sans hover:bg-purple-400 shadow-lg shadow-purple-900/40" 
+            className="mt-5 bg-[#DACC96] p-2 rounded-xl text-black uppercase font-semibold font-sans hover:bg-[#C7B672] shadow-lg border-[#632626] border-[2px] shadow-[#632626]/40" 
             onClick={() => setPopUpActive(!popUpActive)}
           >
             Agregar Receta
@@ -159,18 +158,18 @@ function App() {
         <div className="p-6 ">
           {recipes.map((recipe) => (
             <div
-              className="text-white font-mono bg-purple-600 p-8 my-6 border-purple-900 border-[3px] rounded-2xl shadow-lg shadow-purple-900/70"
+              className="text-white font-mono bg-[#9D5353] p-8 my-6 border-[#632626] border-[3px] rounded-2xl shadow-lg shadow-[#632626]/70"
               key={recipe.id}
             >
               <h3 className="text-4xl font-semibold ">{recipe.title}</h3>
 
               <p
-                className="text-3xl mt-2 font-mono"
+                className="text-xl mt-2 font-mono"
                 dangerouslySetInnerHTML={{ __html: recipe.desc }}
               ></p>
 
               {recipe.viewing && (
-                <div className="grid grid-cols-2 mt-4 p-4 ">
+                <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 mt-6 ">
                   <div className="col-span-1 mt-6">
                     <h4 className="text-2xl uppercase font-mono">
                       Ingredientes
@@ -200,7 +199,7 @@ function App() {
                     <h4 className="text-2xl uppercase font-mono">
                       Instrucciones
                     </h4>
-                    <ol className="p-7 list-decimal">
+                    <ol className="p-6 list-decimal">
                       {recipe.steps.map((step, i) => (
                         <li
                           className="text-xl mt-2  col-span-2 font-mono"
@@ -224,7 +223,7 @@ function App() {
               {console.log(JSON.stringify(recipe))}
               <div className="buttons">
                 <button
-                  className="mt-5 border-2 border-black bg-purple-300 p-2 rounded-xl text-black uppercase font-semibold font-sans hover:bg-purple-400 shadow-lg shadow-purple-900/40"
+                className="mt-5 bg-[#DACC96] p-2 rounded-xl text-black uppercase font-semibold font-sans hover:bg-[#C7B672] shadow-lg border-[#632626] border-[2px] shadow-[#632626]/40" 
                   type="button"
                   onClick={() => handleView(recipe.id)}
                 >
@@ -243,10 +242,12 @@ function App() {
 
         {/* Modal Create */}
         {popUpActive && (
-          <div className="bg-opacity-70 bg-purple-900 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0 ">
-          <div className="text-white w-[90%] sm:w-[80%] md:w-[60%] lg:w-[60%] xl:w-[40%] font-mono bg-purple-600 p-8 my-6 border-purple-900 border-[3px] rounded-2xl shadow-lg shadow-purple-900/70">
+          <div className="bg-opacity-70 bg-[#632626]/80 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0 ">
+            
+          <div 
+          className="text-white w-[90%] sm:w-[80%] md:w-[60%] lg:w-[60%] xl:w-[40%] font-mono bg-[#9D5353] p-8 my-6 border-[#632626] border-[3px] rounded-2xl shadow-lg shadow-[#632626]/70">
             <div className="p-4">
-              <h2 className="text-4xl font-semibold grid place-content-center uppercase mb-9"> Agregar una nueva receta</h2>
+              <h2 className="text-4xl font-semibold grid place-content-center uppercase mb-9"> Agregar nueva receta</h2>
 
               <form onSubmit={handleSubmit}>
                 <div>
@@ -279,7 +280,7 @@ function App() {
                     <div key={i} className="mt-2">
                       <input
                         type="text"
-                        className="p-2 w-[95%] rounded-md bg-purple-200 text-black"
+                        className="p-2 w-[85%] sm:w-[90%] rounded-md bg-purple-200 text-black"
                         value={ingredient}
                         onChange={(e) => handleIngredient(e, i)}
                       />
@@ -292,7 +293,7 @@ function App() {
                       </button>
                     </div>
                   ))}
-                  <button className="text-md uppercase bg-white hover:bg-gray-300 text-black border-black border-[2px] px-2 mt-2 rounded-md" type="button" onClick={handleIngredienteCount}>
+                  <button className="text-md uppercase bg-[#DACC96] hover:bg-[#BF8B67] text-black border-black border-[2px] px-2 mt-2 rounded-md" type="button" onClick={handleIngredienteCount}>
                   + 
                   </button>
                 </div>
@@ -302,7 +303,7 @@ function App() {
                   {form.steps.map((step, i) => (
                     <div className="" key={i}>
                       <textarea
-                        className="w-[95%] rounded-md bg-purple-200 text-black p-2"
+                        className="w-[85%] sm:w-[90%] rounded-md bg-purple-200 text-black p-2"
                         type="text"
                         value={step}
                         onChange={(e) => handleIntruccion(e, i)}
@@ -312,7 +313,7 @@ function App() {
                       </button>
                     </div>
                   ))}
-                  <button className="text-md uppercase bg-white hover:bg-gray-300 text-black border-black border-[2px] px-2 mt-2 rounded-md" type="button" onClick={handleIntruccionCount}>
+                  <button className="text-md uppercase bg-[#DACC96] hover:bg-[#BF8B67] text-black border-black border-[2px] px-2 mt-2 rounded-md" type="button" onClick={handleIntruccionCount}>
                     +
                   </button>
                 </div>
