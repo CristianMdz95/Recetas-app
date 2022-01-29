@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Recetas-app/static/css/main.264c82f3.css",
-    "main.js": "/Recetas-app/static/js/main.544078bc.js",
+    "main.css": "/Recetas-app/static/css/main.2c945a6e.css",
+    "main.js": "/Recetas-app/static/js/main.0b4e4e87.js",
     "index.html": "/Recetas-app/index.html",
-    "main.264c82f3.css.map": "/Recetas-app/static/css/main.264c82f3.css.map",
-    "main.544078bc.js.map": "/Recetas-app/static/js/main.544078bc.js.map"
+    "main.2c945a6e.css.map": "/Recetas-app/static/css/main.2c945a6e.css.map",
+    "main.0b4e4e87.js.map": "/Recetas-app/static/js/main.0b4e4e87.js.map"
   },
   "entrypoints": [
-    "static/css/main.264c82f3.css",
-    "static/js/main.544078bc.js"
+    "static/css/main.2c945a6e.css",
+    "static/js/main.0b4e4e87.js"
   ]
 }
