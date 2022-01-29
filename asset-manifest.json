@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Recetas-app/static/css/main.5f65ec95.css",
+    "main.js": "/Recetas-app/static/js/main.479cc85e.js",
+    "index.html": "/Recetas-app/index.html",
+    "main.5f65ec95.css.map": "/Recetas-app/static/css/main.5f65ec95.css.map",
+    "main.479cc85e.js.map": "/Recetas-app/static/js/main.479cc85e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5f65ec95.css",
+    "static/js/main.479cc85e.js"
+  ]
+}
