@@ -143,7 +143,7 @@ function App() {
   };
 
   return (
-    <div className="bg-[#BF8B67] h-[100vh]">
+    <div className="">
       <div className="container mx-auto p-5">
         <div className="grid place-content-center">
           <button
