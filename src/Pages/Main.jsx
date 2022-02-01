@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { db } from "./firebase.config";
+import { db } from "../Config/firebase.config";
 import {
   collection,
   onSnapshot,
@@ -10,8 +10,9 @@ import {
   arrayRemove,
   arrayUnion,
 } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
-function App() {
+export default function Main() {
   /* Conexión */
   const recipesCollectionRef = collection(db, "recipes");
 
@@ -142,12 +143,25 @@ function App() {
     });
   };
 
+
+
   return (
-    <div className="">
-      <div className="container mx-auto p-5">
-        <div className="grid place-content-center">
+    <div className=""> 
+
+        <div className="p-2 bg-[#9D5353] border-[2px] border-[#632626]">
+            <div className="container mx-auto flex justify-center md:justify-end text-white font-bold md:px-12">
+            <button onClick={() => setPopUpActive(!popUpActive)} className="text-white font-bold md:px-4 hidden sm:inline-block">Agregar Receta</button>
+
+            <Link to={"/Login/"}>
+                <button className="text-white font-bold md:px-4 ">Cerra Sesión</button>
+            </Link>  
+            </div>
+        </div>
+        
+      <div className="container mx-auto ">
+        <div className="grid py-4 sm:py-1 place-content-center visible sm:hidden">
           <button
-            className="mt-5 bg-[#DACC96] p-2 rounded-xl text-black uppercase font-semibold font-sans hover:bg-[#C7B672] shadow-lg border-[#632626] border-[2px] shadow-[#632626]/40" 
+            className=" bg-[#DACC96] p-2 rounded-xl text-black uppercase font-semibold font-sans hover:bg-[#C7B672] shadow-lg border-[#632626] border-[2px] shadow-[#632626]/40" 
             onClick={() => setPopUpActive(!popUpActive)}
           >
             Agregar Receta
@@ -155,7 +169,7 @@ function App() {
         </div>
 
         {/* LadingPage */}
-        <div className="p-6 ">
+        <div className="px-3 ">
           {recipes.map((recipe) => (
             <div
               className="text-white font-mono bg-[#9D5353] p-8 my-6 border-[#632626] border-[3px] rounded-2xl shadow-lg shadow-[#632626]/70"
@@ -242,7 +256,7 @@ function App() {
 
         {/* Modal Create */}
         {popUpActive && (
-          <div className="bg-opacity-70 bg-[#632626]/80 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0 ">
+          <div className="bg-opacity-70 bg-[#632626]/80 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0 h-[100vh] ">
             
           <div 
           className="text-white w-[90%] sm:w-[80%] md:w-[60%] lg:w-[60%] xl:w-[40%] font-mono bg-[#9D5353] p-8 my-6 border-[#632626] border-[3px] rounded-2xl shadow-lg shadow-[#632626]/70">
@@ -330,9 +344,9 @@ function App() {
           </div>
           </div>
         )}
+        
       </div>
     </div>
   );
 }
 
-export default App;
