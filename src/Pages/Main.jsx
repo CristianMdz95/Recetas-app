@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { db } from "../Config/firebase.config";
+import {db, firebaseApp} from "../Config/firebase.config";
 import {
   collection,
   onSnapshot,
@@ -10,7 +10,9 @@ import {
   arrayRemove,
   arrayUnion,
 } from "firebase/firestore";
+import { getAuth, signOut } from "firebase/auth";
 import { Link } from "react-router-dom";
+const auth = getAuth(firebaseApp);
 
 export default function Main() {
   /* Conexión */
@@ -152,9 +154,8 @@ export default function Main() {
             <div className="container mx-auto flex justify-center md:justify-end text-white font-bold md:px-12">
             <button onClick={() => setPopUpActive(!popUpActive)} className="text-white font-bold md:px-4 hidden sm:inline-block">Agregar Receta</button>
 
-            <Link to={"/Login/"}>
-                <button className="text-white font-bold md:px-4 ">Cerra Sesión</button>
-            </Link>  
+            
+                <button className="text-white font-bold md:px-4 " onClick={() => signOut(auth)}>Cerra Sesión</button>
             </div>
         </div>
         
